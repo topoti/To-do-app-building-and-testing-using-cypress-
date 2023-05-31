@@ -1,0 +1,28 @@
+
+body {
+   background-color: antiquewhite;
+    margin: 50px 2%;
+}
+
+
+.container-title {
+    font-size: 25px;
+    text-align: center;
+    margin: 0 0 30px 0;
+    color: black;
+}
+
+.textarea {
+    width: 50%;
+    height: 40px;
+    font-size: medium;
+    }
+
+.buttoninput {
+    border-radius: 10px;
+    border-color: #333;
+    background-color: white;
+    font-size: 20px;
+}
+
+
