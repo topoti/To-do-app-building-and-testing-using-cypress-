@@ -3,6 +3,13 @@ const inputField = document.getElementById('inputField')
 const addButton = document.getElementById('addButton')
 const listItem = document.getElementById('list')
 const allButton = document.getElementById('allButton')
+const activeButton = document.getElementById('activeButton')
+const completeButton = document.getElementById('completeButton')
+const clearButton = document.getElementById('clearButton')
+const list = document.getElementById('list')
+const section = document.getElementById('section')
+
+var currentState = "all";
 
 function clickButton() {
     addTodo()
@@ -13,8 +20,6 @@ inputField.addEventListener("keydown", function (event) {
         addTodo();
     }
 });
-
-allButton.addEventListener('click', addTodo);
 
 function addTodo() {
     const itemall = document.createElement('div')
@@ -30,6 +35,10 @@ function addTodo() {
     listItem.appendChild(itemall)
     inputField.value = ''
 
+    itemall.addEventListener("dblclick", function () {
+    itemall.contentEditable = true;
+    itemall.focus();
+      });
   
     const checkbutton = document.createElement("button")
     checkbutton.classList.add("fas", "fa-check");
@@ -66,17 +75,25 @@ listItem.addEventListener('click', clickHandler);
 
 addButton.addEventListener('click', clickButton);
 
-for (let i = 0; i < updatedList.length; i++) {
-    if (updatedList[i].id == listItem.id) {
-      updatedList.splice(updatedList.indexOf(updatedList[i]), 1);
-    }
-    console.log(updatedList);
-  }
+
+// function filterButton(e){
+    
+//   }
 
 
-  for( let i=0; i< itemall.length; i++){
-    if(itemall[i].id == listItem.id){
-        itemall[i].splice(itemall.indexOf(itemall[i]),1);
-    }
-    console.log(itemall);
-  }
+allButton.addEventListener('click', function(){
+    currentState = "all";
+    allButton.style.background ="green";
+    addTodo()
+});
+
+activeButton.addEventListener('click', function(){
+    currentState = "active";
+    activeButton.style.background = "black";
+    
+})
+
+completeButton.addEventListener('click', function(){
+    currentState = "complete";
+    completeButton.style.background = "blue";
+})
