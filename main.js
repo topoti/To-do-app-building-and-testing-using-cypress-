@@ -79,10 +79,16 @@ function deleteTask(index) {
 
 
 function showAllTasks() {
+  allButton.style.background = "green";
+  completeButton.style.background = "black";
+  activeButton.style.background = "black";
   todoTasks();
 }
 
 function showActiveTasks() {
+  activeButton.style.background = "green";
+  allButton.style.background = "black";
+  completeButton.style.background = "black";
   listItem.innerHTML = "";
 
   tasks.forEach((task, index) => {
@@ -93,6 +99,9 @@ function showActiveTasks() {
 }
 
 function showCompletedTasks() {
+  allButton.style.background = "black";
+  completeButton.style.background = "green";
+  activeButton.style.background = "black";
   listItem.innerHTML = "";
 
   tasks.forEach((task, index) => {
@@ -103,6 +112,7 @@ function showCompletedTasks() {
 }
 
 function clearCompletedTasks() {
+    clearButton.style.background = "gray";
 
     for(let i=0; i<tasks.length-1; i++) 
     {
