@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/topoti/newwwww#readme",
   "devDependencies": {
-    "cypress": "^12.13.0"
+    "cypress": "^12.17.3"
   }
 }

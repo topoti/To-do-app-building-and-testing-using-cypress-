@@ -12,45 +12,73 @@ function addTasks(tasks) {
    for (let i = 0; i < tasks.length; i++) {
      cy.get(".textarea").type(tasks[i]);
      cy.contains("Add Item").click();
-     cy.wait(1000);
    }
  }
   cy.get('#list').find('.itemall').should('have.length', 5) // assertion
 
-  //expect($item.get(0).textContent, 'first item').to.equal('Writing test 1');
+  cy.get('.itemall').eq(0).should('contain','Writing test 1');
 
 });
 
 
-//  it("test1", () =>{
-//    cy.get("h1").should("contain", "To Do List");
+ it("should check the work done and show proper functionality", () =>{
 
-   
-   //  cy.get(".fas.fa-check").click();
+   cy.get("h1").should("contain", "To Do List");
 
-   //  //cy.get(".fas.fa-trash").click();
+   const tasks = ["Writing test 1", "Writing test 2", "Writing test 3", "Writing test 4", "Writing test 5"];
+   addTasks(tasks);
+   function addTasks(tasks) {
+   for (let i = 0; i < tasks.length; i++) {
+     cy.get(".textarea").type(tasks[i]);
+     cy.contains("Add Item").click();
+      }
+   }   
+    cy.get(".fas.fa-check").eq(2).click();
 
-   //  cy.get("#allButton").click();
-   //  cy.wait(2000);
+    //cy.get(".fas.fa-trash").click();
 
-   //  cy.get("#activeButton").click();
-   //  cy.wait(2000);
+    cy.get("#allButton").click();
+    cy.wait(2000);
+    cy.get('#list').find('.itemall').should('have.length', 5)
 
-   //  cy.get("#completeButton").click();
-   //  cy.wait(2000);
+    cy.get("#activeButton").click();
+    cy.wait(2000);
+    cy.get('#list').find('.itemall').should('have.length', 4)
 
-   //  cy.get("#clearButton").click();
-//  })
+    cy.get("#completeButton").click();
+    cy.wait(2000);
+    cy.get('#list').find('.itemall').should('have.length', 1)
 
+    cy.get("#clearButton").click();
+ })
 
-//  it("test2", () =>{
+ it("should delete the work and show proper functionality", () =>{
 
-//    cy.visit("http://127.0.0.1:5501/index.html");
+   cy.get("h1").should("contain", "To Do List");
 
-//    cy.get(".textarea").type("Execute test");
+   const tasks = ["Writing test 1", "Writing test 2", "Writing test 3", "Writing test 4", "Writing test 5"];
+   addTasks(tasks);
+   function addTasks(tasks) {
+   for (let i = 0; i < tasks.length; i++) {
+     cy.get(".textarea").type(tasks[i]);
+     cy.contains("Add Item").click();
+      }
+   }   
+    cy.get(".fas.fa-trash").eq(1).click();
 
-//    cy.contains("Add Item").click();
+    cy.get("#allButton").click();
+    cy.wait(2000);
+    cy.get('#list').find('.itemall').should('have.length', 4)
 
+    cy.get("#activeButton").click();
+    cy.wait(2000);
+    cy.get('#list').find('.itemall').should('have.length', 4)
 
-// })
+    cy.get("#completeButton").click();
+    cy.wait(2000);
+    cy.get('#list').find('.itemall').should('have.length', 0)
+
+    cy.get("#clearButton").click();
+ })
+
 })
