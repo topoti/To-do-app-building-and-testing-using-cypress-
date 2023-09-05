@@ -2,18 +2,18 @@
 
 ToDo list is a simple web application to save Your daily tasks in order not to miss anything.
 
->####  Features: 
- > - Add new task
- > - Mark task as completed / uncompleted
- > - Edit task
- > - Delete single task
- > - Delete completed tasks
- > - Delete all tasks
+####  Features: 
+  - Add new task
+  - Mark task as completed / uncompleted
+  - Edit task
+  - Delete single task
+  - Delete completed tasks
+  - Delete all tasks
   
->#### Technologies used:
-  >- HTML
-  >- CSS
-  >- JavaScript
+#### Technologies used:
+  - HTML
+  - CSS
+  - JavaScript
 ### Steps of installing cypress
 step-1 go to CMD from that folder
 
